@@ -7,9 +7,31 @@
    padding: 0; 
 }
 
+body::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url('./assest/logo-pic.png'); /* Path to your logo image */
+    background-repeat: no-repeat;
+    background-position: center center; /* Center the logo in the middle of the screen */
+    background-attachment: fixed; /* This makes the background fixed during scroll */
+    background-size: contain; /* This makes sure the entire logo is visible */
+    opacity: 0.2; /* Adjust the transparency as needed */
+    z-index: -1; /* Ensures the pseudo-element is behind the content */
+  }
+  
 body {
     font-family: "Poppins", sans-serif;
+    position: relative;
 }
+
+body * {
+    position: relative;
+    z-index: 1;
+  }
 
 html {
     scroll-behavior: smooth;
@@ -27,6 +49,23 @@ a,
 }
 
 /* DESKTOP NAV */
+.logo-mobile {
+    color: black;
+}
+
+.logo {
+    color: yellow; /* Set the text color of the logo to yellow */
+  }
+  
+#desktop-nav {
+    background-color: black; /* Set the background color to black */
+    border-bottom: 2px solid yellow; /* Add a yellow border at the bottom */
+  }
+  
+  #desktop-nav .nav-links a {
+    color: yellow; /* Set the text color to yellow */
+  }
+  
 
 nav, 
 .nav-links{
@@ -88,25 +127,29 @@ a:hover{
 
 .hamburger-icon span{
     width: 100%;
-    height: 2px;
+    height: 3px;
     background-color: black;
     transition: all 0.3 ease-in-out;
 }
 
 .menu-links{
+    display: none; /* Initially hidden */
     position: absolute;
     top: 100%;
+    left: 0;
     right: 0;
     background-color: white;
+    color: #000; /* Text color */
     width: fit-content;
     max-height: 0;
     overflow: hidden;
     transition: all 0.3 ease-in-out;
-}
+    z-index: 1000; /* High z-index to ensure it's on top */
 
+}
 .menu-links a {
     display: block;
-    padding: 100%;
+    padding: 15px;
     text-align: center;
     font-size: 1.5rem;
     color: black;
@@ -117,10 +160,11 @@ a:hover{
 .menu-links li {
     list-style: none;
 }
-
 .menu-links.open {
-    max-height: 300px;
+    display: block; /* Show the menu */
+    max-height: none; /* Remove max-height or set a high value */
 }
+
 
 .hamburger-icon.open span:first-child {
     transform: rotate(45deg) translate(10px, 5px);
@@ -150,7 +194,7 @@ hamburger-icon span:first-child {
 
 section{
     padding-top: 4vh;
-    height: 96vh;
+    min-height: 96vh;
     margin: 0 10rem;
     box-sizing: border-box;
     min-height: fit-content;
@@ -261,6 +305,18 @@ section{
     gap: 1rem;
 }
 
+.btn-color-2 {
+    background: none;
+    color: white; /* Set initial text color to white */
+    border: rgb(53, 53, 53) 0.1rem solid;
+}
+
+.btn-color-2:hover {
+    color: blue; /* Change text color to blue on hover */
+    background: none; /* Keep background the same or change as needed */
+    border: rgb(255, 255, 255) 0.1rem solid; /* Optional: change border color on hover */
+}
+
 /*ABOUT SECTION */
 
 #about {
@@ -314,71 +370,190 @@ section{
     margin: auto 0;
 }
 
-/* EXPERIENCE SECTION */
 
-#experience {
-    position: relative;
+
+
+/* TEAM SECTION */
+
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0 ;
+    padding: 0;
+    background-color: #f4f4f4;
 }
 
-.experience-sub-title {
-    color: rgb(85, 85, 85);
-    font-weight: 600;
-    font-size: 1.75rem;
+#team {
+    padding: 10px 10px;
+    background-color: transparent;
+}
+
+.team-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+.team-member {
+    position: relative;
+    width: 300px; /* Reduced from 400px to 300px */
+    margin: 20px;
+    border: 1px solid #ddd;
+    box-shadow: 0 34px 38px rgba(0, 0, 0, 0.1);
+    border-radius: 10px; /* Rounded corners for the card */
+    overflow: hidden; /* Ensures the image fits in the card */
+}
+
+.team-member img {
+    width: 100%;
+    display: block;
+    object-fit: cover; /* Ensures image covers the card */
+    height: 375px; /* Adjusted proportionally to the new width */
+}
+
+.overlay {
+    position: absolute;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5); /* Semi-transparent overlay */
+    color: #fff;
+    width: 100%;
+    transition: .5s ease;
+    opacity:0;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+.team-member:hover .overlay {
+    opacity: 1;
+}
+
+.name {
+    font-size: 20px;
+    margin-bottom: 10px;
+    color: white;
+}
+
+
+
+.buttons {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centers the buttons horizontally */
+}
+
+.learn-more-btn {
+    border: none;
+    cursor: pointer;
+    padding: 5px 20px; /* Adjust padding to control button width */
+    margin: 5px 0;
+    border-radius: 10px; /* Rounded corners for the buttons */
+    transition: background 0.3s, color 0.3s;
+    width: 80%; /* Control the width of the button */
+    max-width: 200px; /* Prevent the button from being too wide */
+}
+
+.white-btn {
+    background: #fff;
+    color: #000;
+}
+
+.transparent-btn {
+    background: transparent;
+    color: #fff;
+    border: 1px solid #fff; /* Adds border to the transparent button */
+}
+.team-member .member-name {
+    position: absolute;
+    top: 0; /* Adjust as needed */
+    left: 0; /* Adjust as needed */
+    color: white; /* Choose a text color that is visible on your image */
+    background-color: transparent; /* Semi-transparent background for the text */
+    padding: 5px 10px; /* Padding around the text */
+    border-radius: 0 0 5px 0; /* Rounded bottom-right corner */
+    font-size: 25px; /* Adjust font-size as needed */
+    max-width: 90%; /* Ensures the name does not extend outside the image */
+    box-sizing: border-box;
+    z-index: 2; /* Above the image but below the overlay */
+    font-family: 'Montserrat', sans-serif; /* This line sets the new font */
+    font-weight: 700; /* Example for bold text */
+
+}
+
+.team-member:hover .overlay {
+    opacity: 1;
+    z-index: 2;
+}
+
+@media (max-width: 600px) {
+    .team-member {
+        width: 80%; /* Adjust for smaller screens */
+        margin: 10px auto; /* Center and reduce margin on smaller screens */
+    }
+
+    .team-member img {
+        height: auto; /* Adjust height automatically for smaller screens */
+    }
+}
+
+
+
+/* DELIVERABLES SECTION */
+#deliverables {
+    padding: 50px 20px;
+    text-align: center;
+    background-color: transparent;
+}
+
+.section-header h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.section-header p {
+    font-size: 1.2rem;
     margin-bottom: 2rem;
 }
 
-.experience-details-container {
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
+.documents-container,
+.video-gallery {
+    margin-bottom: 3rem;
 }
 
-.article-container {
-    display: flex;
-    text-align: initial;
-    flex-wrap: wrap;
-    flex-direction: row;
-    gap: 2.5rem;
-    justify-content: space-around;
+.document-list {
+    list-style: none;
+    padding: 0;
 }
 
-article {
-    display: flex;
-    width: 10rem;
-    justify-content: space-around;
-    gap: 0.5rem;
+.document-list li {
+    margin-bottom: 0.5rem;
 }
 
-article .icon {
-    cursor: default;
+.document-list a {
+    font-size: 1.2rem;
+    color: #0275d8;
+    text-decoration: none;
+    transition: color 0.3s ease;
 }
 
-/* PROJECTS SECTION */
-
-#projects {
-    position: relative;
+.document-list a:hover {
+    color: #0256b3;
 }
 
-.color-container {
-    border-color: rgb(163, 163, 163);
-    background: rgb(250, 250, 250);
+.video-gallery video {
+    width: 100%;
+    max-width: 600px; /* Adjust as needed */
+    height: auto;
+    border-radius: 10px;
+    margin-bottom: 1rem;
+    outline: none; /* Removes the blue outline in some browsers */
 }
 
-.project-img {
-    border-radius: 2rem;
-    width: 90%;
-    height: 90%;
+.video-gallery video::-webkit-media-controls {
+    border-radius: 10px;
+    overflow: hidden; /* This is to make the border-radius apply to the controls as well */
 }
 
-.project-title {
-    margin: 1rem;
-    color: black;
-}
-
-.project-btn {
-    color: black;
-    border-color: rgb(163, 163, 163);
-}
 
 /* CONTACT */
 
@@ -386,11 +561,14 @@ article .icon {
     display: flex;
     justify-content: center;
     flex-direction: column;
-    height: 70vh;
+    /* Remove the height or set it to min-height */
+    min-height: 70vh;
 }
 
 .contact-info-upper-container {
     display: flex;
+    flex-direction: column; /* Changed to column */
+    align-items: center; /* Add this to align items vertically in the center */
     justify-content: center;
     border-radius: 2rem;
     border: rgb(53, 53, 53) 0.1rem solid;
@@ -407,6 +585,7 @@ article .icon {
     gap: 0.5rem;
     margin: 1rem;
 }
+
 
 .contact-info-container p {
     font-size: larger;
@@ -430,3 +609,4 @@ footer {
 footer p{
     text-align: center;
 }
+

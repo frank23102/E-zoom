@@ -23,17 +23,37 @@
     #desktop-nav{
         display: none;
     }
-    #hamburger-nav{
+    #hamburger-nav {
         display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 10px 40px;
     }
-    #experience,
-    .experience-details-cointainer {
-        margin-top: 2rem;
-    }
-    #profile,
-    .section-container {
+
+    .hamburger-icon {
         display: block;
     }
+    .menu-links {
+        display: none; /* Initially hidden */
+        position: absolute; /* Changed from 'center' to 'absolute' */
+        top: 100%;
+        left: 0;
+        right: 0;
+        background-color: white;
+        width: 100%; /* Full width */
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1); /* For better visibility */
+        z-index: 10; /* Ensure it's above other content */
+    }
+
+    .menu-links.open {
+        display: block; /* Show the menu when 'open' class is added */
+    }
+
+    .menu-links a {
+        padding: 10px 15px; /* Adjust padding */
+        font-size: 1.2rem; /* Adjust font size for readability */
+    }
+    
     .arrow{
         display: none;
     }
@@ -89,7 +109,7 @@
         font-size: 1.5rem;
     }
     .nav-links{
-        flex-direction:column;
+        flex-direction: column;
         gap: 0.5rem;
         text-align: center;
     }
@@ -102,9 +122,10 @@
         font-size: 1.25rem;
     }
     .title {
-        font-size:2rem;
+        font-size: 2rem;
     }
     .text-container {
         text-align: justify;
     }
 }
+
