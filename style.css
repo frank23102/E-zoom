@@ -610,3 +610,7 @@ footer p{
     text-align: center;
 }
 
+#video-player {
+    margin-top: 20px;
+    max-width: 80%;
+}
