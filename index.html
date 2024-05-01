@@ -51,7 +51,17 @@
         <h1 class="title">ABOUT US</h1>
         <div class="text-container">
             <p>
-                At E-Zoom, we believe in unlocking the potential of every bicycle, turning them into powerful and efficient electric rides. Our passion for sustainable transportation led us to develop a revolutionary product that seamlessly combines the simplicity of a traditional bike with the efficiency of modern electric technology.            </p>
+                At E-Zoom, we believe in unlocking the potential of every bicycle, turning them into powerful and efficient electric rides. Our passion for sustainable transportation led us to develop a revolutionary product that seamlessly combines the simplicity of a traditional bike with the efficiency of modern electric technology.            
+            </p>
+            <div class="video">
+                <video controls>
+                    <source src="./assest/Trailer.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                
+                <!-- Add more video tags for additional videos or implement a JavaScript slider for multiple videos -->
+            </div>
+            
      
                 <div class="about-details-container">
                     <div class="about-containers">
@@ -154,7 +164,7 @@
         class="icon arrow" 
         onclick="location.href='./#deliverables'"
         >
-    </section>
+    </section> 
     <section id="deliverables">
         <div class="section-header">
             <h2>Our Deliverables</h2>
@@ -198,6 +208,55 @@
         onclick="location.href='./#contact'"
         >
     </section>   
+    <section id="improvements">
+        <h2>Improvements</h2>
+    
+        <section id="central-electronics">
+            <h3>Central Electronics</h3>
+            <p>Central logic for speedometer and battery indicator functionality.</p>
+            <ul>
+                <li>Upgraded U6223 regulator to LM2596S</li>
+                <li>Upgraded 0.96in OLED to 2.42in OLED</li>
+                <li>Upgraded to a waterproof GPS antenna</li>
+            </ul>
+            <p>Testing reveals proportional battery readings, from 4.8V (100%) to 3.2V (0%).</p>
+        </section>
+    
+        <section id="drive-motor">
+            <h3>Drive and Motor System</h3>
+            <p>Details:</p>
+            <ul>
+                <li>Motor upgrade: 2750 RPM</li>
+                <li>Key locking ignition switch for security</li>
+                <li>Secure battery connection on the speed controller</li>
+            </ul>
+            <p>Battery and motor stress testing shows the bike can operate continuously without overheating.</p>
+        </section>
+    
+        <section id="gear-chain">
+            <h3>Gear and Chain Mechanism</h3>
+            <p>Design constraints:</p>
+            <ul>
+                <li>Top speed: 20-25 mph</li>
+                <li>Gear ratio: 40:12</li>
+                <li>Aluminum gears and standard #410 chain</li>
+                <li>Axle mounted</li>
+            </ul>
+        </section>
+    
+        <section id="housing-mounting">
+            <h3>Housing and Mounting Mechanism</h3>
+            <p>Design changes:</p>
+            <ul>
+                <li>Clamp-style mount</li>
+                <li>Motor mount relocated</li>
+                <li>Divided housing for splash and dust resistance</li>
+                <li>Electronics housing</li>
+            </ul>
+        </section>
+
+    </section>   
+    
     <section id="contact">
         <p class="section_text_p1">Get in Touch</p>
         <h1 class="title">Contact Us</h1>
