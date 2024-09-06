@@ -7,21 +7,6 @@
    padding: 0; 
 }
 
-body::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-image: url('./assest/logo-pic.png'); /* Path to your logo image */
-    background-repeat: no-repeat;
-    background-position: center center; /* Center the logo in the middle of the screen */
-    background-attachment: fixed; /* This makes the background fixed during scroll */
-    background-size: contain; /* This makes sure the entire logo is visible */
-    opacity: 0.2; /* Adjust the transparency as needed */
-    z-index: -1; /* Ensures the pseudo-element is behind the content */
-  }
   
 body {
     font-family: "Poppins", sans-serif;
@@ -194,8 +179,6 @@ hamburger-icon span:first-child {
 
 section{
     padding-top: 4vh;
-    min-height: 96vh;
-    margin: 0 10rem;
     box-sizing: border-box;
     min-height: fit-content;
     
@@ -322,6 +305,8 @@ section{
 
 #about {
     position: relative;
+    margin: 0 10rem;
+
 }
 
 .about-containers {
