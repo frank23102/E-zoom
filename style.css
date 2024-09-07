@@ -197,11 +197,17 @@ section{
     height: 80vh;
 }
 
-.section_pic-container {
+/* .section_pic-container {
     display: flex;
     height: 400px;
     width: 400px;
     margin: auto 0;
+} */
+
+.section_pic-container img {
+    width: 75%; /* Make the image 75% of the container's width */
+    height: auto; /* Maintain the aspect ratio */
+    float: left; /* Ensure it stays to the left */
 }
 
 .section_text{
@@ -355,6 +361,8 @@ section{
     width: 400px;
     margin: auto 0;
 }
+
+
 
 
 
