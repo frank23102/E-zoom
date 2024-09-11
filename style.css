@@ -11,6 +11,8 @@
 body {
     font-family: "Poppins", sans-serif;
     position: relative;
+    background-color: black;
+
 }
 
 body * {
@@ -39,16 +41,17 @@ a,
 }
 
 .logo {
-    color: yellow; /* Set the text color of the logo to yellow */
+    color: white; /* Set the text color of the logo to yellow */
   }
   
 #desktop-nav {
     background-color: black; /* Set the background color to black */
-    border-bottom: 2px solid yellow; /* Add a yellow border at the bottom */
+    border-bottom: 2px solid white; /* Add a yellow border at the bottom */
   }
   
   #desktop-nav .nav-links a {
-    color: yellow; /* Set the text color to yellow */
+    color: white; /* Set the text color to white */
+
   }
   
 
@@ -191,51 +194,48 @@ section{
 /* PROFILE SECTION */
 
 #profile {
-    gap: 1rem;
-    height: 100%;
-    padding-top: 0;
-    background-color: black;
-    border-bottom: solid yellow;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    gap: 1rem; /* Adds space between the image containers */
+    height: 100%; /* Ensures the section takes full height */
+    padding-top: 0; /* Removes any top padding */
+    background-color: black; /* Background color of the section */
+    border-bottom: solid white; /* Yellow border at the bottom */
+    display: flex; /* Flexbox for layout */
+    justify-content: space-between; /* Aligns the left and right images apart */
+    align-items: center; /* Vertically centers the items within the section */
 }
 
-.section_pic-container {
-    display: flex;
-    width: 100%;
+/* Styling for the left image container */
+.section_pic-container img {
+    width: 100%; /* Makes the image take up the full width of its container */
+    float: left; /* Floats the image to the left */
+    border-right: solid whitesmoke; /* Adds a yellow border on the right side of the image */
 }
 
-
-.section_pic-container img:first-child {
-    width: 85%;
-    float: left;
-    border-right: solid yellow;
-
-}
-
+/* Right image container styling */
 .right-image-container {
-    display: flex;
-    flex-direction: column; /* Ensure items are stacked vertically */
-    align-items: center; /* Center the image and button horizontally */
-    text-align: center; /* Align the text in the button */
+    display: flex; /* Flexbox for stacking elements (image and button) */
+    flex-direction: column; /* Stacks the image and button vertically */
+    align-items: center; /* Horizontally centers the image and button */
+    text-align: center; /* Ensures text is centered */
+    width: 40vw; /* Sets the container width to 40% of the viewport width */
 }
 
+/* Styling for the logo (right image) */
 .right-image-container img {
-    padding: 2rem;
-    width: 15%;
-    display: block;
-    margin-bottom: 10px; /* Adds space between image and button */
+    width: 20vw; /* Sets the width of the image to 20% of the viewport width */
+    padding: 1rem; /* Adds padding around the image */
+    margin-bottom: 40px; /* Adds space between the image and the button */
 }
 
+/* Button styling */
 .right-image-container button {
-    padding: 10px 20px;
-    background-color: yellow; /* Customize the button color */
-    color: black; /* Customize the button text color */
-    border: none;
-    cursor: pointer;
-    font-size: 16px;
-    transition: background-color 0.3s ease;
+    padding: 10px 20px; /* Adds padding inside the button */
+    background-color: white; /* Sets the button background to yellow */
+    color: black; /* Sets the text color to black */
+    border: none; /* Removes any borders from the button */
+    cursor: pointer; /* Changes the cursor to pointer on hover */
+    font-size: 16px; /* Sets the font size */
+    transition: background-color 0.3s ease; /* Smooth transition effect for background color on hover */
 }
 
 .right-image-container button:hover {
@@ -261,8 +261,11 @@ section{
 }
 
 .title {
+    color: white;
     font-size: 3rem;
     text-align: center;
+    margin-bottom: 40px;
+    margin-top: 40px;
 }
 
 #socials-container{
@@ -277,6 +280,116 @@ section{
 .icon {
     cursor: pointer;
     height: 2rem;
+}
+
+
+/* TEAM SECTION */
+
+#team {
+    background-color: black;
+    margin: 0;
+    padding: 0;
+
+}
+
+.team-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+}
+
+.team-member {
+    position: relative;
+    width: 318px; /* Reduced from 400px to 300px */
+    border: 1px solid #ddd;
+    box-shadow: 0 34px 38px rgba(0, 0, 0, 0.1);
+    border-radius: 10px; /* Rounded corners for the card */
+    overflow: hidden; /* Ensures the image fits in the card */
+}
+
+.team-member img {
+    width: 100%;
+    display: block;
+    object-fit: cover; /* Ensures image covers the card */
+    height: 500px; /* Adjusted proportionally to the new width */
+}
+
+.overlay {
+    position: absolute;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5); /* Semi-transparent overlay */
+    color: #fff;
+    width: 100%;
+    transition: .5s ease;
+    opacity:0;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+.team-member:hover .overlay {
+    opacity: 1;
+}
+
+.name {
+    font-size: 20px;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    color: white;
+}
+
+
+.buttons {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centers the buttons horizontally */
+}
+
+.learn-more-btn {
+    border: none;
+    cursor: pointer;
+    padding: 5px 20px; /* Adjust padding to control button width */
+    margin: 5px 0;
+    border-radius: 10px; /* Rounded corners for the buttons */
+    transition: background 0.3s, color 0.3s;
+    width: 80%; /* Control the width of the button */
+    max-width: 200px; /* Prevent the button from being too wide */
+}
+
+.white-btn {
+    background: #fff;
+    color: #000;
+}
+
+.transparent-btn {
+    background: transparent;
+    color: #fff;
+    border: 1px solid #fff; /* Adds border to the transparent button */
+}
+.team-member .member-name {
+    position: absolute;
+    top: 0; /* Adjust as needed */
+    left: 0; /* Adjust as needed */
+    color: white; /* Choose a text color that is visible on your image */
+    background-color: transparent; /* Semi-transparent background for the text */
+    padding: 5px 10px; /* Padding around the text */
+    border-radius: 0 0 5px 0; /* Rounded bottom-right corner */
+    font-size: 25px; /* Adjust font-size as needed */
+    max-width: 90%; /* Ensures the name does not extend outside the image */
+    box-sizing: border-box;
+    z-index: 2; /* Above the image but below the overlay */
+    font-family: 'Montserrat', sans-serif; /* This line sets the new font */
+    font-weight: 700; /* Example for bold text */
+
+}
+
+.team-member:hover .overlay {
+    opacity: 1;
+    z-index: 2;
 }
 
 /* BUTTONS */
@@ -387,135 +500,6 @@ section{
     gap: 4rem;
     height: 80%;
 }
-
-
-
-
-/* TEAM SECTION */
-
-body {
-    font-family: 'Arial', sans-serif;
-    margin: 0 ;
-    padding: 0;
-    background-color: #f4f4f4;
-    border: 1px solid #ccc;
-
-}
-
-#team {
-    padding: 10px 10px;
-    background-color: transparent;
-}
-
-.team-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 20px;
-}
-
-.team-member {
-    position: relative;
-    width: 300px; /* Reduced from 400px to 300px */
-    margin: 20px;
-    border: 1px solid #ddd;
-    box-shadow: 0 34px 38px rgba(0, 0, 0, 0.1);
-    border-radius: 10px; /* Rounded corners for the card */
-    overflow: hidden; /* Ensures the image fits in the card */
-}
-
-.team-member img {
-    width: 100%;
-    display: block;
-    object-fit: cover; /* Ensures image covers the card */
-    height: 375px; /* Adjusted proportionally to the new width */
-}
-
-.overlay {
-    position: absolute;
-    bottom: 0;
-    background: rgba(0, 0, 0, 0.5); /* Semi-transparent overlay */
-    color: #fff;
-    width: 100%;
-    transition: .5s ease;
-    opacity:0;
-    color: white;
-    padding: 20px;
-    text-align: center;
-}
-
-.team-member:hover .overlay {
-    opacity: 1;
-}
-
-.name {
-    font-size: 20px;
-    margin-bottom: 10px;
-    color: white;
-}
-
-
-
-.buttons {
-    display: flex;
-    flex-direction: column;
-    align-items: center; /* Centers the buttons horizontally */
-}
-
-.learn-more-btn {
-    border: none;
-    cursor: pointer;
-    padding: 5px 20px; /* Adjust padding to control button width */
-    margin: 5px 0;
-    border-radius: 10px; /* Rounded corners for the buttons */
-    transition: background 0.3s, color 0.3s;
-    width: 80%; /* Control the width of the button */
-    max-width: 200px; /* Prevent the button from being too wide */
-}
-
-.white-btn {
-    background: #fff;
-    color: #000;
-}
-
-.transparent-btn {
-    background: transparent;
-    color: #fff;
-    border: 1px solid #fff; /* Adds border to the transparent button */
-}
-.team-member .member-name {
-    position: absolute;
-    top: 0; /* Adjust as needed */
-    left: 0; /* Adjust as needed */
-    color: white; /* Choose a text color that is visible on your image */
-    background-color: transparent; /* Semi-transparent background for the text */
-    padding: 5px 10px; /* Padding around the text */
-    border-radius: 0 0 5px 0; /* Rounded bottom-right corner */
-    font-size: 25px; /* Adjust font-size as needed */
-    max-width: 90%; /* Ensures the name does not extend outside the image */
-    box-sizing: border-box;
-    z-index: 2; /* Above the image but below the overlay */
-    font-family: 'Montserrat', sans-serif; /* This line sets the new font */
-    font-weight: 700; /* Example for bold text */
-
-}
-
-.team-member:hover .overlay {
-    opacity: 1;
-    z-index: 2;
-}
-
-@media (max-width: 600px) {
-    .team-member {
-        width: 80%; /* Adjust for smaller screens */
-        margin: 10px auto; /* Center and reduce margin on smaller screens */
-    }
-
-    .team-member img {
-        height: auto; /* Adjust height automatically for smaller screens */
-    }
-}
-
 
 
 /* DELIVERABLES SECTION */

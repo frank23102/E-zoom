@@ -129,3 +129,46 @@
     }
 }
 
+/* Mobile layout adjustments */
+@media (max-width: 768px) {
+    #profile {
+        flex-direction: column; /* Stack the containers vertically */
+        justify-content: center; /* Center the entire section */
+        align-items: center; /* Center the items horizontally */
+        gap: 2rem; /* Add more space between the sections */
+    }
+
+    /* Center the left image in mobile */
+    .section_pic-container img {
+        width: 70vw; /* Reduce the image size for mobile */
+        border-right: none; /* Remove the right border for mobile */
+        margin: 0 auto; /* Center the image */
+    }
+
+    /* Make the right-image-container stack below the image */
+    .right-image-container {
+        width: 100%; /* Take full width of the screen */
+        align-items: center; /* Center the logo and button */
+    }
+
+    /* Adjust the size of the logo in mobile */
+    .right-image-container img {
+        width: 50vw; /* Make the logo larger for mobile */
+    }
+
+    /* Adjust the button for mobile */
+    .right-image-container button {
+        width: auto; /* Let the button size adjust according to the content */
+        padding: 10px 30px; /* Add more padding for a larger button */
+    }
+}
+@media (max-width: 600px) {
+    .team-member {
+        width: 80%; /* Adjust for smaller screens */
+        margin: 10px auto; /* Center and reduce margin on smaller screens */
+    }
+
+    .team-member img {
+        height: auto; /* Adjust height automatically for smaller screens */
+    }
+}
