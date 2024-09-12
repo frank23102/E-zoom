@@ -17,7 +17,6 @@ body {
 
 body * {
     position: relative;
-    z-index: 1;
   }
 
 html {
@@ -93,69 +92,74 @@ a:hover{
     cursor: default;
 }
 
-/*HAMBURGER MENU*/
+/* HAMBURGER MENU */
 
-#hamburger-nav{
-    display: none;
+#hamburger-nav {
+    display: flex; /* Show the nav */
+    position: absolute; /* Or relative, depending on your layout */
+    right: 130px; /* Move it 20px from the right edge */
+    top: -10px; /* Adjust the distance from the top as needed */
+    z-index: 1000; /* Ensure it's on top */
 }
 
-.hamburger.menu{
-    position: relative;
-    display: inline-block;
-}
-
-.hamburger-icon{
+.hamburger-icon {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     height: 24px;
     width: 30px;
     cursor: pointer;
+    z-index: 1001; /* Ensure it's above other elements */
 }
 
-.hamburger-icon span{
+.hamburger-icon span {
+    margin-left: 20px;
     width: 100%;
     height: 3px;
-    background-color: black;
-    transition: all 0.3 ease-in-out;
+    background-color: white; /* Set this to be visible on your background */
+    transition: all 0.3s ease-in-out;
 }
 
-.menu-links{
-    display: none; /* Initially hidden */
+/* Menu links are initially hidden */
+.menu-links {
+    width: 200px; /* Set a fixed width or adjust accordingly */
+    box-sizing: border-box; /* Include padding/borders in width calculation */
+    text-align: center;
+    display: none; /* Hidden initially */
     position: absolute;
-    top: 100%;
-    left: 0;
-    right: 0;
-    background-color: white;
-    color: #000; /* Text color */
-    width: fit-content;
+    top: 100%; /* Positioned just below the hamburger icon */
+    right: 0; /* Expand towards the left */
+    background-color: white; /* Set background color for the menu */
     max-height: 0;
     overflow: hidden;
-    transition: all 0.3 ease-in-out;
-    z-index: 1000; /* High z-index to ensure it's on top */
-
+    transition: max-height 0.3s ease-in-out;
+    z-index: 1000; /* Ensure it's above other elements */
 }
+
+/* When the menu is opened */
+.menu-links.open {
+    display: block; 
+    max-height: 500px; /* Adjust as needed */
+    width: 160px;
+}
+
 .menu-links a {
+    background-color: black;
     display: block;
-    padding: 15px;
+    padding: 10px 15px; /* Adjust padding for spacing */
     text-align: center;
-    font-size: 1.5rem;
-    color: black;
+    color: white; /* Ensure text is visible */
     text-decoration: none;
-    transition: all 0.3 ease-in-out;
+    transition: all 0.3s ease-in-out;
 }
 
 .menu-links li {
     list-style: none;
 }
-.menu-links.open {
-    display: block; /* Show the menu */
-    max-height: none; /* Remove max-height or set a high value */
-}
 
-
+/* Hamburger icon animations when clicked */
 .hamburger-icon.open span:first-child {
-    transform: rotate(45deg) translate(10px, 5px);
+    transform: rotate(45deg) translate(5px, 5px);
 }
 
 .hamburger-icon.open span:nth-child(2) {
@@ -163,19 +167,7 @@ a:hover{
 }
 
 .hamburger-icon.open span:last-child {
-    transform: rotate(-45deg) translate(10px, -5px);
-}
-
-hamburger-icon span:first-child {
-    transform: none;
-}
-
-hamburger-icon span:first-child {
-    opacity: 1;
-}
-
-.hamburger-icon span:first-child{
-    transform: none;
+    transform: rotate(-45deg) translate(5px, -5px);
 }
 
 /* SECTIONS */
@@ -268,6 +260,14 @@ section{
     margin-top: 40px;
 }
 
+.title1 {
+    color: black;
+    font-size: 3rem;
+    text-align: center;
+    margin-bottom: 40px;
+    margin-top: 40px;
+}
+
 #socials-container{
     display: flex;
     justify-content: center;
@@ -286,110 +286,98 @@ section{
 /* TEAM SECTION */
 
 #team {
-    background-color: black;
-    margin: 0;
-    padding: 0;
-
+    background-color: black; /* Sets the background color for the entire team section */
+    margin: 0; /* Removes default margin */
+    padding: 0; /* Removes default padding */
 }
 
 .team-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    box-sizing: border-box;
-    padding: 0;
-    margin: 0;
-    width: 100%;
+    display: flex; /* Enables flexbox layout */
+    justify-content: center; /* Centers all team members horizontally */
+    box-sizing: border-box; /* Ensures padding and border are included in element's width/height */
+    width: 100%; /* Makes the container span the full width of the section */
+    margin-bottom: 80px;
 }
 
 .team-member {
-    position: relative;
-    width: 318px; /* Reduced from 400px to 300px */
-    border: 1px solid #ddd;
-    box-shadow: 0 34px 38px rgba(0, 0, 0, 0.1);
-    border-radius: 10px; /* Rounded corners for the card */
-    overflow: hidden; /* Ensures the image fits in the card */
+    position: relative; /* Allows positioning of child elements (like overlay) */
+    width: 318px; /* Sets the width of each team member card */
+    border: 1px solid #ddd; /* Light border around the team member */
+    box-shadow: 0 34px 38px rgba(0, 0, 0, 0.1); /* Adds subtle shadow for depth */
+    overflow: hidden; /* Ensures any overflow is clipped, especially the image */
 }
 
 .team-member img {
-    width: 100%;
-    display: block;
-    object-fit: cover; /* Ensures image covers the card */
-    height: 500px; /* Adjusted proportionally to the new width */
+    width: 100%; /* Image takes up the full width of its parent */
+    display: block; /* Ensures no gaps around the image */
+    object-fit: cover; /* Ensures the image covers the card, without distortion */
+    height: 500px; /* Sets a proportional height based on the new width */
 }
 
 .overlay {
-    position: absolute;
-    bottom: 0;
-    background: rgba(0, 0, 0, 0.5); /* Semi-transparent overlay */
-    color: #fff;
-    width: 100%;
-    transition: .5s ease;
-    opacity:0;
-    color: white;
-    padding: 20px;
-    text-align: center;
-}
-
-.team-member:hover .overlay {
-    opacity: 1;
+    position: absolute; /* Positions the overlay relative to the parent (team-member) */
+    bottom: 0; /* Aligns the overlay at the bottom of the card */
+    background: rgba(0, 0, 0, 0.5); /* Semi-transparent black background */
+    color: #fff; /* White text color for readability */
+    width: 100%; /* Makes the overlay span the full width of the card */
+    transition: .5s ease; /* Smooth transition for changes (like opacity) */
+    opacity: 0; /* Initially hidden (can be removed if you want it visible all the time) */
+    color: white; /* Ensures the text remains white */
+    padding: 20px; /* Padding around the overlay content */
+    text-align: center; /* Centers text within the overlay */
+    opacity: 1; /* Keeps the overlay visible at all times */
 }
 
 .name {
-    font-size: 20px;
-    margin-bottom: 20px;
-    margin-top: 20px;
-    color: white;
+    font-size: 20px; /* Sets font size for the team member name */
+    margin-bottom: 20px; /* Adds space below the name */
+    margin-top: 20px; /* Adds space above the name */
+    color: white; /* Ensures the name is white for visibility */
 }
 
-
 .buttons {
-    display: flex;
-    flex-direction: column;
+    display: flex; /* Uses flexbox to organize buttons */
+    flex-direction: column; /* Aligns buttons in a vertical column */
     align-items: center; /* Centers the buttons horizontally */
 }
 
 .learn-more-btn {
-    border: none;
-    cursor: pointer;
-    padding: 5px 20px; /* Adjust padding to control button width */
-    margin: 5px 0;
-    border-radius: 10px; /* Rounded corners for the buttons */
-    transition: background 0.3s, color 0.3s;
-    width: 80%; /* Control the width of the button */
-    max-width: 200px; /* Prevent the button from being too wide */
+    border: none; /* Removes default border */
+    cursor: pointer; /* Changes the cursor to a pointer when hovering over the button */
+    padding: 5px 20px; /* Adjusts the padding inside the button */
+    margin: 5px 0; /* Adds margin between buttons */
+    border-radius: 10px; /* Rounds the button corners */
+    transition: background 0.3s, color 0.3s; /* Adds smooth transition effects for background and text color */
+    width: 80%; /* Sets the button width as 80% of the parent */
+    max-width: 200px; /* Caps the button width to prevent it from getting too large */
 }
 
 .white-btn {
-    background: #fff;
-    color: #000;
+    background: #fff; /* White background */
+    color: #000; /* Black text color */
 }
 
 .transparent-btn {
-    background: transparent;
-    color: #fff;
-    border: 1px solid #fff; /* Adds border to the transparent button */
+    background: transparent; /* Transparent background */
+    color: #fff; /* White text */
+    border: 1px solid #fff; /* White border around the button */
 }
+
 .team-member .member-name {
-    position: absolute;
-    top: 0; /* Adjust as needed */
-    left: 0; /* Adjust as needed */
-    color: white; /* Choose a text color that is visible on your image */
-    background-color: transparent; /* Semi-transparent background for the text */
-    padding: 5px 10px; /* Padding around the text */
-    border-radius: 0 0 5px 0; /* Rounded bottom-right corner */
-    font-size: 25px; /* Adjust font-size as needed */
-    max-width: 90%; /* Ensures the name does not extend outside the image */
-    box-sizing: border-box;
-    z-index: 2; /* Above the image but below the overlay */
-    font-family: 'Montserrat', sans-serif; /* This line sets the new font */
-    font-weight: 700; /* Example for bold text */
-
-}
-
-.team-member:hover .overlay {
-    opacity: 1;
-    z-index: 2;
+    position: absolute; /* Allows positioning relative to the parent (team-member) */
+    top: 0; /* Positions the name at the top of the card */
+    left: 0; /* Positions the name aligned to the left */
+    color: white; /* White text for visibility */
+    background-color: transparent; /* Transparent background for the name */
+    padding: 5px 10px; /* Padding around the name for spacing */
+    border-radius: 0 0 5px 0; /* Rounds the bottom-right corner */
+    font-size: 25px; /* Sets the font size for the team member's name */
+    max-width: 90%; /* Ensures the name doesn't extend beyond the card's width */
+    box-sizing: border-box; /* Ensures padding is included in the width calculation */
+    z-index: 2; /* Ensures the name appears above the image but below the overlay */
+    font-family: 'Montserrat', sans-serif; /* Sets the font to Montserrat */
+    font-weight: 700; /* Bold font weight for emphasis */
+    align-items: center; /* Centers the name within its container */
 }
 
 /* BUTTONS */
@@ -456,7 +444,7 @@ section{
 
 #about {
     position: relative;
-    margin: 0 10rem;
+    background-color: white;
 
 }
 
@@ -466,9 +454,21 @@ section{
     margin-top: 2rem;
 }
 
+.custom-header {
+    display: block;
+    color: black; /* Change the text color */
+    font-size: 19px; /* Increase the font size */
+    text-align: center; /* Center the text */
+    max-width: 1400px;
+    word-break: break-word;
+    margin:0 auto
+}
+
 .about-details-container {
     justify-content: center;
     flex-direction: column;
+    margin-left: 80px;
+    margin-right: 80px;
 }
 
 .about-containers, 
@@ -496,6 +496,8 @@ section{
     text-align: center;
 }
 
+
+
 .section-container{
     gap: 4rem;
     height: 80%;
@@ -504,9 +506,9 @@ section{
 
 /* DELIVERABLES SECTION */
 #deliverables {
+    background-color: white;
     padding: 50px 20px;
     text-align: center;
-    background-color: transparent;
 }
 
 .section-header h2 {
@@ -578,8 +580,6 @@ section{
     border: rgb(53, 53, 53) 0.1rem solid;
     border-color: rgb(163, 163, 163);
     background: rgb(250, 250, 250);
-    margin: 2rem auto;
-    padding: 0.5rem;
 }
 
 .contact-info-container {
@@ -606,6 +606,7 @@ section{
 /* FOOTER */
 
 footer {
+    background-color: white;
     height: 26vh;
     margin: 0 1rem;
 }
@@ -620,8 +621,8 @@ footer p{
 }
 
 #improvements {
-    margin: 20px 0;
-    padding: 10px;
+    background-color: white;
+    align-items: center;
     border: 1px solid #ccc;
 }
 

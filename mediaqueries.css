@@ -22,16 +22,24 @@
 @media screen and (max-width: 1200px) {
     #desktop-nav{
         display: none;
+
     }
     #hamburger-nav {
-        display: flex;
+        display: flex; /* Show the hamburger nav on smaller screens */
         align-items: center;
         justify-content: space-between;
-        padding: 10px 40px;
+        padding: 10px 20px;
+    }
+
+    .logo-mobile {
+        display: block;
+        color: white; /* Set the color if needed */
+        font-size: 2rem; /* Adjust size if needed */
     }
 
     .hamburger-icon {
-        display: block;
+        display: flex;
+        color: white;
     }
     .menu-links {
         display: none; /* Initially hidden */
@@ -51,7 +59,8 @@
 
     .menu-links a {
         padding: 10px 15px; /* Adjust padding */
-        font-size: 1.2rem; /* Adjust font size for readability */
+        font-size: 1rem; /* Adjust font size for readability */
+        background-color: black; /* A semi-transparent white background */
     }
     
     .arrow{
@@ -124,9 +133,7 @@
     .title {
         font-size: 2rem;
     }
-    .text-container {
-        text-align: justify;
-    }
+
 }
 
 /* Mobile layout adjustments */
@@ -162,6 +169,7 @@
         padding: 10px 30px; /* Add more padding for a larger button */
     }
 }
+
 @media (max-width: 600px) {
     .team-member {
         width: 80%; /* Adjust for smaller screens */
