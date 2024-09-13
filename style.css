@@ -454,6 +454,10 @@ section{
     margin-top: 2rem;
 }
 
+.text-container {
+    border-top:  solid black; /* Adds a solid black top border with 2px width */
+}
+
 .custom-header {
     display: block;
     color: black; /* Change the text color */
@@ -461,7 +465,7 @@ section{
     text-align: center; /* Center the text */
     max-width: 1400px;
     word-break: break-word;
-    margin:0 auto
+    margin:30px auto
 }
 
 .about-details-container {
@@ -476,14 +480,12 @@ section{
     display: flex;
 }
 
-.about-pic {
-    border-radius: 2rem;
-}
-
-.arrow {
-    position: absolute;
-    right: -5rem;
-    bottom: 2.5rem;
+.details-container p1 {
+    border-left: 2px solid black; /* Adds the solid black left border */
+    padding-left: 10px; /* Adds some spacing between the text and the border */
+    word-wrap: break-word; /* Allows the text to wrap on new lines if necessary */
+    white-space: normal; /* Ensures the text wraps to the next line */
+    display: block; /* Keeps the p1 as block-level, which is the default for paragraphs */
 }
 
 .details-container {
@@ -496,59 +498,88 @@ section{
     text-align: center;
 }
 
-
-
 .section-container{
     gap: 4rem;
     height: 80%;
 }
 
+video {
+    width: 100%; /* Allows the video to be responsive */
+    max-width: 800px; /* Set the maximum width to make the video smaller */
+    margin: 10px auto; /* Centers the video horizontally */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+    display: block; /* Ensures the video behaves as a block-level element */
+}
 
 /* DELIVERABLES SECTION */
 #deliverables {
-    background-color: white;
+    background-color: black;
     padding: 50px 20px;
     text-align: center;
 }
 
 .section-header h2 {
+    color: white;
     font-size: 2.5rem;
     margin-bottom: 1rem;
 }
 
-.section-header p {
-    font-size: 1.2rem;
-    margin-bottom: 2rem;
+h3 {
+    color: white;
 }
 
-.documents-container,
-.video-gallery {
-    margin-bottom: 3rem;
+.document-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* Responsive grid */
+    gap: 20px;
+    padding: 20px 0;
 }
 
-.document-list {
-    list-style: none;
-    padding: 0;
+.document-card {
+    background-color: #333; /* Dark background for each card */
+    padding: 20px;
+    border-radius: 10px;
+    transition: transform 0.3s ease, background-color 0.3s ease;
 }
 
-.document-list li {
-    margin-bottom: 0.5rem;
-}
-
-.document-list a {
-    font-size: 1.2rem;
-    color: #0275d8;
+.document-card a {
     text-decoration: none;
-    transition: color 0.3s ease;
+    color: white;
 }
 
-.document-list a:hover {
-    color: #0256b3;
+.document-preview {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.document-preview img {
+    width: 60px; /* Icon size */
+    margin-bottom: 10px;
+}
+
+.document-preview p {
+    font-size: 1.1rem;
+    margin: 0;
+    color: white;
+}
+
+.document-card:hover {
+    transform: scale(1.05); /* Hover effect to make it pop */
+    background-color: #444; /* Slightly brighter background on hover */
+}
+
+/* Grid layout for the video gallery */
+.video-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* Creates responsive grid */
+    gap: 20px; /* Adds space between videos */
 }
 
 .video-gallery video {
     width: 100%;
-    max-width: 600px; /* Adjust as needed */
+    max-width: none; /* Removes the max-width so grid controls the layout */
     height: auto;
     border-radius: 10px;
     margin-bottom: 1rem;
@@ -557,7 +588,7 @@ section{
 
 .video-gallery video::-webkit-media-controls {
     border-radius: 10px;
-    overflow: hidden; /* This is to make the border-radius apply to the controls as well */
+    overflow: hidden; /* This makes the border-radius apply to the controls as well */
 }
 
 
@@ -625,21 +656,7 @@ footer p{
     align-items: center;
     border: 1px solid #ccc;
 }
-
-h3 {
-    color: #333;
-}
-
 ul {
     list-style: none;
     padding-left: 0;
 }
-
-video {
-    width: 100%;
-    margin-top: 10px;
-    border-radius: 10%; 
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
-}
-
-
