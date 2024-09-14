@@ -33,74 +33,60 @@ a,
 .btn{
     transition: all 300 ms ease;
 }
-
 /* DESKTOP NAV */
-.logo-mobile {
-    color: black;
+/* This section is for the desktop navigation */
+#desktop-nav-container {
+    display: flex; /* Flex container for logo and nav links */
+    justify-content: flex-start; /* Align items to the left (logo and links initially) */
+    align-items: center; /* Center the logo and nav vertically */
+    background-color: black; /* Background color of the nav */
+    border-bottom: 2px solid white; /* Bottom border for the nav */
+    padding: 0 2rem; /* Padding to control left/right spacing */
+    height: 10vh; /* Height of the navigation */
 }
 
 .logo {
-    color: white; /* Set the text color of the logo to yellow */
-  }
-  
-#desktop-nav {
-    background-color: black; /* Set the background color to black */
-    border-bottom: 2px solid white; /* Add a yellow border at the bottom */
-  }
-  
-  #desktop-nav .nav-links a {
-    color: white; /* Set the text color to white */
+    font-size: 2rem;
+    color: white; /* Set the text color of the logo to white */
+    margin-right: auto; /* Ensure logo stays on the left */
+}
 
-  }
-  
-
-nav, 
-.nav-links{
+#desktop-nav .nav-links {
     display: flex;
-}
-
-nav{
-    justify-content: space-around;
-    align-items: center;
-    height: 10vh;
-}
-
-.nav-links{
-    gap: 2rem;
+    gap: 2rem; /* Space between navigation links */
     list-style: none;
     font-size: 1.5rem;
+    margin-left: auto; /* This ensures the navigation links move to the right */
 }
 
-a {
-    color: black;
+#desktop-nav .nav-links a {
+    color: white; /* Text color of the navigation links */
     text-decoration: none;
-    text-decoration-color: white;
 }
 
-a:hover{
+a:hover {
     color: grey;
     text-decoration: underline;
     text-underline-offset: 1rem;
     text-decoration-color: rgb(181, 181, 181);
 }
 
-.logo{
-    font-size: 2rem;
-}
-
-.logo:hover{
+.logo:hover {
     cursor: default;
 }
-
-/* HAMBURGER MENU */
-
+/* MOBILE NAV */
+/* This section is for the mobile hamburger navigation */
 #hamburger-nav {
-    display: flex; /* Show the nav */
-    position: absolute; /* Or relative, depending on your layout */
-    right: 130px; /* Move it 20px from the right edge */
-    top: -10px; /* Adjust the distance from the top as needed */
-    z-index: 1000; /* Ensure it's on top */
+    display: none; /* Hidden by default */
+    position: fixed; /* Set position to fixed to ensure it's always at the top */
+    top: 0; /* Align it to the top of the page */
+    left: 0; /* Align it to the left */
+    right: 0; /* Ensure it spans the full width */
+    z-index: 1000; /* Ensure it is above other content */
+    background-color: black; /* Set background color */
+    padding: 10px 20px; /* Add padding for spacing */
 }
+
 
 .hamburger-icon {
     display: flex;
@@ -109,46 +95,46 @@ a:hover{
     height: 24px;
     width: 30px;
     cursor: pointer;
-    z-index: 1001; /* Ensure it's above other elements */
+    z-index: 1001;
 }
 
 .hamburger-icon span {
     margin-left: 20px;
     width: 100%;
     height: 3px;
-    background-color: white; /* Set this to be visible on your background */
+    background-color: white;
     transition: all 0.3s ease-in-out;
 }
 
 /* Menu links are initially hidden */
 .menu-links {
-    width: 200px; /* Set a fixed width or adjust accordingly */
-    box-sizing: border-box; /* Include padding/borders in width calculation */
+    width: 200px;
+    box-sizing: border-box;
     text-align: center;
-    display: none; /* Hidden initially */
+    display: none;
     position: absolute;
-    top: 100%; /* Positioned just below the hamburger icon */
-    right: 0; /* Expand towards the left */
-    background-color: white; /* Set background color for the menu */
+    top: 100%;
+    right: 0;
+    background-color: white;
     max-height: 0;
     overflow: hidden;
     transition: max-height 0.3s ease-in-out;
-    z-index: 1000; /* Ensure it's above other elements */
+    z-index: 1000;
 }
 
 /* When the menu is opened */
 .menu-links.open {
-    display: block; 
-    max-height: 500px; /* Adjust as needed */
+    display: block;
+    max-height: 500px;
     width: 160px;
 }
 
 .menu-links a {
     background-color: black;
     display: block;
-    padding: 10px 15px; /* Adjust padding for spacing */
+    padding: 10px 15px;
     text-align: center;
-    color: white; /* Ensure text is visible */
+    color: white;
     text-decoration: none;
     transition: all 0.3s ease-in-out;
 }
@@ -169,7 +155,6 @@ a:hover{
 .hamburger-icon.open span:last-child {
     transform: rotate(-45deg) translate(5px, -5px);
 }
-
 /* SECTIONS */
 
 section{
@@ -445,7 +430,7 @@ section{
 #about {
     position: relative;
     background-color: white;
-
+    padding-top: 1vh;
 }
 
 .about-containers {
@@ -459,13 +444,13 @@ section{
 }
 
 .custom-header {
-    display: block;
+    display:flow-root;
     color: black; /* Change the text color */
-    font-size: 19px; /* Increase the font size */
+    font-size: 17px; /* Increase the font size */
     text-align: center; /* Center the text */
-    max-width: 1400px;
     word-break: break-word;
-    margin:30px auto
+    margin:30px auto;
+    width: auto;
 }
 
 .about-details-container {
@@ -521,10 +506,10 @@ video {
 .section-header h2 {
     color: white;
     font-size: 2.5rem;
-    margin-bottom: 1rem;
+    margin-bottom: 3rem;
 }
 
-h3 {
+h4 {
     color: white;
 }
 
@@ -592,25 +577,86 @@ h3 {
 }
 
 
+/* IMPROVEMENT SECTION */
+
+#improvements {
+    background-color: black;
+    /* border-top: solid white; */
+    padding: 20px;
+    color: white;
+    border-bottom: solid white;
+    padding-bottom: 80px;
+
+}
+
+#improvements h5 {
+    text-align: center;
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: white;
+}
+
+/* Container for the sections */
+.improvements-container {
+    display: flex;
+    flex-wrap: wrap; /* Allows the sections to wrap if necessary */
+    gap: 20px; /* Adds space between the sections */
+    justify-content: space-between; /* Adjusts the spacing of the sections */
+}
+
+.improvements-container section {
+    border: 4px solid white;
+    padding: 20px;
+    width: 100%; /* Make sections take the full width in mobile, adjust below */
+    color: white;
+}
+
+/* Title of each section */
+.improvements-container h6 {
+    font-size: 20px;
+    margin-bottom: 10px;
+    color: white;
+}
+
+/* Styling for the list */
+.improvements-container ul {
+    list-style-type: disc;
+    padding-left: 20px;
+    color: white;
+}
+
+/* Styling for the paragraphs */
+.improvements-container p {
+    margin-top: 10px;
+    color: white;
+}
+
+
 /* CONTACT */
 
 #contact {
+    background-color: black;
     display: flex;
     justify-content: center;
     flex-direction: column;
-    /* Remove the height or set it to min-height */
-    min-height: 70vh;
+    height: auto;
+    padding-bottom: 5vh;
+}
+#contact h1{
+    color:white;
 }
 
 .contact-info-upper-container {
-    display: flex;
-    flex-direction: column; /* Changed to column */
+    display:flex;
     align-items: center; /* Add this to align items vertically in the center */
-    justify-content: center;
+    justify-content:left;
     border-radius: 2rem;
-    border: rgb(53, 53, 53) 0.1rem solid;
+    border: solid white;
     border-color: rgb(163, 163, 163);
-    background: rgb(250, 250, 250);
+    background: black;
+}
+#contact a{
+    color: white;
 }
 
 .contact-info-container {
@@ -620,7 +666,6 @@ h3 {
     gap: 0.5rem;
     margin: 1rem;
 }
-
 
 .contact-info-container p {
     font-size: larger;
@@ -637,13 +682,16 @@ h3 {
 /* FOOTER */
 
 footer {
-    background-color: white;
-    height: 26vh;
-    margin: 0 1rem;
+    background-color: black;
+}
+
+.nav-links a{
+    color: white;
 }
 
 footer p{
     text-align: center;
+    color: white;
 }
 
 #video-player {
@@ -651,11 +699,6 @@ footer p{
     max-width: 80%;
 }
 
-#improvements {
-    background-color: white;
-    align-items: center;
-    border: 1px solid #ccc;
-}
 ul {
     list-style: none;
     padding-left: 0;
